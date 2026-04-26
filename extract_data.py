@@ -17,7 +17,16 @@ for country in countries:
     df_panel.insert(6, "log_gdp_pc", np.log(df_panel["gdp_pc"]))
 
     # save data
-    saveToCSVandExcel(df_panel, country)
+    saveToCSVandExcel(df_panel, "RAW_DATA", country)
+
+    # convert into 5-year averaged values because of missing gini coefficients
+
+    df = df_panel
+    df["period_5yr"] = (df["year"] // 5) * 5
+    df_5yr = df.groupby(["country", "period_5yr"]).mean(numeric_only=True).reset_index()
+
+    # save the 5-year average data
+    saveToCSVandExcel(df_5yr, "5_YEAR_AVG", country)
 
     # set the global data frame
-    df_curr = df_panel
+    df_curr = df

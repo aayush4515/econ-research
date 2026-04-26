@@ -1,6 +1,7 @@
 from constants import indicators, countries
 import pandas as pd
 import wbgapi as wb
+import os
 
 # function to extract data for a particular country
 def extractCountryData(country):
@@ -17,9 +18,16 @@ def extractCountryData(country):
     return df
 
 # function to save the dataframe to an excel and csv file, country too if provided
-def saveToCSVandExcel(df, country=None):
-    df.to_csv(f"RAW_DATA_CSV/{country}_raw_data.csv", index=False)
-    df.to_excel(f"RAW_DATA_XLSX/{country}_raw_data.xlsx", index=False)
+def saveToCSVandExcel(df, folder, country=None):
+    # create the directories if they do not exist
+    csv_folder = f"CSV_DATA/{folder}"
+    xlsx_folder = f"XLSX_DATA/{folder}"
+
+    os.makedirs(csv_folder, exist_ok=True)
+    os.makedirs(xlsx_folder, exist_ok=True)
+
+    df.to_csv(f"{csv_folder}/{country}_raw_data.csv", index=False)
+    df.to_excel(f"{xlsx_folder}/{country}_raw_data.xlsx", index=False)
 
 # function to convert data into panel format
 def convertToPanelFormat(df, country):
