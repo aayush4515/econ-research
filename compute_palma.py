@@ -1,7 +1,6 @@
 # compute the palma ratio using the top 10 and bottom 40% share
 import pandas as pd
-
-countries = ["Nepal", "India", "Pakistan", "Bangladesh", "Srilanka"]
+from constants import countries
 
 for country in countries:
     # load the csv datasets into dataframes

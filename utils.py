@@ -1,4 +1,4 @@
-from constants import indicators, countries
+from constants import indicators, countries, economies
 import pandas as pd
 import wbgapi as wb
 import os
@@ -8,7 +8,7 @@ def extractCountryData(country):
     df = wb.data.DataFrame(
         indicators,
         economy=country,
-        time=range(1995, 2026),
+        time=range(1994, 2025),
         labels=True
     ).reset_index()
 
@@ -54,7 +54,7 @@ def extractData():
     df = wb.data.DataFrame(
         indicators,
         economy=countries,
-        time=range(1995, 2026),
+        time=range(1994, 2025),
         labels=True
     ).reset_index()
 

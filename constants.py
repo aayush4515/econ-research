@@ -11,5 +11,8 @@ indicators = {
     "SL.UEM.TOTL.ZS": "unemployment"
 }
 
-# countries to fetch data from
-countries = ["BGD", "IND", "NPL", "PAK", "LKA"]
+# economies to fetch data from
+economies = ["BGD", "IND", "NPL", "PAK", "LKA"]
+
+# countries
+countries = ["Nepal", "India", "Pakistan", "Bangladesh", "Srilanka"]

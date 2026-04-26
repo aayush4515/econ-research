@@ -2,10 +2,9 @@
 
 # clean the data if needed
 import pandas as pd
+from constants import countries
 
 # drop the percentile columns from top 10% dataset
-countries = ["Nepal", "India", "bangladesh", "pakistan", "srilanka"]
-
 
 for country in countries:
     # load the csv data into the dataframe
