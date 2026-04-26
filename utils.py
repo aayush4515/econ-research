@@ -11,6 +11,9 @@ def extractCountryData(country):
         labels=True
     ).reset_index()
 
+    # replace the column names with indicator names instead of indicator codes
+    df["series"] = df["series"].replace(indicators)
+
     return df
 
 # function to save the dataframe to an excel and csv file, country too if provided
