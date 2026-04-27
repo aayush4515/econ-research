@@ -20,6 +20,16 @@ for economy, country in zip(economies, countries):
     df_palma = pd.read_csv(f"PALMA_RATIOS/{country}_palma_ratio.csv")
     df_panel["palma_ratio"] = df_palma["palma_ratio"]
 
+    # add the WGI indicators: va, cc and ge
+    wgi_cols = ["va_score", "cc_score", "ge_score"]
+    df_wgi = pd.read_csv(f"WGI_DATA_CLEANED/{country}_governance.csv")
+    df_wgi = df_wgi.rename(columns={"Year": "year"})
+    df_panel = df_panel.merge(
+        df_wgi[["year"] + wgi_cols],
+        on="year",
+        how="left"
+    )
+
     # save data
     saveToCSVandExcel(df_panel, "RAW_DATA", "raw_data", economy)
 

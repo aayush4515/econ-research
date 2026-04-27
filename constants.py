@@ -15,4 +15,4 @@ indicators = {
 economies = ["BGD", "IND", "NPL", "PAK", "LKA"]
 
 # countries
-countries = ["Nepal", "India", "Pakistan", "Bangladesh", "Srilanka"]
+countries = ["Bangladesh", "India", "Nepal", "Pakistan", "Srilanka"]

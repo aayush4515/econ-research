@@ -17,4 +17,5 @@ for country in countries:
 
     # drop the top_10_share and bottom_40_share columns
     df = df.drop(columns=['top_10_share', 'bottom_40_share'])
+    # save now
     df.to_csv(f"PALMA_RATIOS/{country}_palma_ratio.csv", index=False)
